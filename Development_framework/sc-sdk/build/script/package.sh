@@ -36,7 +36,7 @@ function get_os_info() {
         OsName="openEuler"
         OsArch="Redhat"
     # in order to support tee sdk publish environment in blue zone to add Uniontech OS Server 20 Enterprise
-    elif [[ ${osNameTrip} =~ "uos20SP1" ]] || [[ ${osNameTrip} =~ "UniontechOSServer20Enterprise" ]]; then
+    elif [[ ${osNameTrip} =~ "uos20SP1" ]] || [[ ${osNameTrip} =~ "UnionTechOSServer20" ]]; then
         OsName="uos"
         OsArch="Debian"
         echo "update OsName OsArch value, os is ${OsName}, arch is ${OsArch}"
