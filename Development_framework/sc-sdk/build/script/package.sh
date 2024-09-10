@@ -12,7 +12,6 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-
 OsName=""
 OsArch=""
 
@@ -96,17 +95,22 @@ function apply_patch() {
 
     echo "apply itrustee client patch"
     cd ${SrcPath}/itrustee_client
-    git am ${patchDir}/itrustee_client/*.patch
+    git apply ${patchDir}/itrustee_client/*.patch
     rm -rf *.patch
 
     echo "apply itrustee tzdriver patch"
     cd ${SrcPath}/itrustee_tzdriver
-    git am ${patchDir}/itrustee_tzdriver/*.patch
+    git apply ${patchDir}/itrustee_tzdriver/*.patch
     rm -rf *.patch
 
-    echo "apply libboundscheck patch"
-    cd ${SrcPath}/libboundscheck
+    echo "apply itrustee_client/libboundscheck patch"
+    cd ${SrcPath}/itrustee_client/libboundscheck
     git am ${patchDir}/libboundscheck/*.patch
+    rm -rf *.patch
+
+    echo "apply itrustee_tzdriver/libboundscheck patch"
+    cd ${SrcPath}/itrustee_tzdriver/libboundscheck
+    git am ${pathDir}/libboundscheck/*.patch
     rm -rf *.patch
 
     # recover git config
@@ -142,7 +146,8 @@ function get_src_code() {
         rm -rf ${SrcPath}
         exit 1
     fi
-
+    
+    cd ${SrcPath}/itrustee_client
     git clone https://gitee.com/openeuler/libboundscheck.git
     if [[ $? -ne 0 ]]; then
         echo "libboundscheck download failed."
@@ -150,7 +155,20 @@ function get_src_code() {
         exit 1
     fi
 
-    git clone -b devkitdemo-23.0.0 https://github.com/kunpengcompute/devkitdemo.git
+    cd ${SrcPath}/itrustee_tzdriver
+    git clone https://gitee.com/openeuler/libboundscheck.git
+    if [[ $? -ne 0 ]]; then
+	echo "libboundscheck download failed."
+	rm -rf ${SrcPath}
+	exit 1
+    fi
+
+    cd ${SrcPath}
+   # git clone -b devkitdemo-23.0.0 https://github.com/kunpengcompute/devkitdemo.git
+    cp -r /devkitdemo .
+    cd ${SrcPath}/devkitdemo
+    git checkout devkitdemo-23.0.0
+    cd ${SrcPath}
     if [[ $? -ne 0 ]]; then
         echo "devkitdemo download failed."
         rm -rf ${SrcPath}
@@ -168,24 +186,29 @@ function get_src_code() {
     apply_patch
 
     # tar source code
-    cd ${SrcPath}
+    cd ${SrcPath}/itrustee_client
     rm -rf libboundscheck/.git
-    tar zcvf libboundscheck.tar.gz libboundscheck
+    tar zcf libboundscheck.tar.gz libboundscheck
 
+    cd ${SrcPath}/itrustee_tzdriver
+    rm -rf libboundcheck/.git
+    tar zcf libboundscheck.tar.gz libboundscheck
+
+    cd ${SrcPath}
     rm -rf itrustee_tzdriver/.git
-    tar zcvf itrustee_tzdriver.tar.gz itrustee_tzdriver
+    tar zcf itrustee_tzdriver.tar.gz itrustee_tzdriver
 
     rm -rf itrustee_client/.git
-    tar zcvf itrustee_client.tar.gz itrustee_client
+    tar zcf itrustee_client.tar.gz itrustee_client
 
     rm -rf itrustee_sdk/.git
-    tar zcvf itrustee_sdk.tar.gz itrustee_sdk
+    tar zcf itrustee_sdk.tar.gz itrustee_sdk
 
     cp -r devkitdemo/Development_framework/sc-sdk/examples/* demo
     # copy libcrypto.a for demo cert-assign
     mkdir -p demo/cert-assign/lib
     cp libcrypto.a demo/cert-assign/lib
-    tar zcvf demo.tar.gz demo
+    tar zcf demo.tar.gz demo
 }
 
 function create_workdir() {
@@ -221,7 +244,8 @@ function copy_files() {
     for value in ${distDir[*]}
     do
         echo "copy files to ${value}"
-        cp ${SrcPath}/libboundscheck.tar.gz ${value}
+        cp ${SrcPath}/itrustee_client/libboundscheck.tar.gz ${value}
+	# cp ${SrcPath}/itrustee_tzdriver/libboundscheck.tar.gz ${value}
         cp ${SrcPath}/itrustee_tzdriver.tar.gz ${value}
         cp ${SrcPath}/itrustee_client.tar.gz ${value}
         cp ${SrcPath}/itrustee_sdk.tar.gz ${value}
