@@ -21,7 +21,7 @@ PatchPath=${RootPath}/patch
 ScriptPath=${RootPath}/script
 SrcPath=${RootPath}/src
 OutputPath=${RootPath}/output
-PackageVersion="1.3.0"
+PackageVersion="1.6.2"
 
 # workdir
 DebBuild="/root/debbuild"
@@ -110,7 +110,7 @@ function apply_patch() {
 
     echo "apply itrustee_tzdriver/libboundscheck patch"
     cd ${SrcPath}/itrustee_tzdriver/libboundscheck
-    git am ${pathDir}/libboundscheck/*.patch
+    git am ${patchDir}/libboundscheck/*.patch
     rm -rf *.patch
 
     # recover git config
