@@ -30,7 +30,7 @@ $ cd ..
 
 Step 4. Run Demo.
 ```sh
-$ build/crc32_demo
+$ ./crc32_demo
 ```
 Expected Result：crc = 0x4ee4ecc1
 
