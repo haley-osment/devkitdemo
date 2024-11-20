@@ -31,7 +31,7 @@ $ cd ..
 
 步骤4. 运行Demo。
 ```sh
-$ build/erasure_code_demo
+$ ./erasure_code_demo
 ```
 预期结果：decode succ!!
 
