@@ -14,7 +14,7 @@ $ git clone https://github.com/kunpengcompute/devkitdemo.git
 
 Step 2. Change to Demo Directory.
 ```sh
-$ cd /home/devkitdemo/gpc-sdk/examples/glz
+$ cd ./devkitdemo/Development_framework/dc-sdk/examples/glz
 ```
 
 Step 3. Compile Demo.
