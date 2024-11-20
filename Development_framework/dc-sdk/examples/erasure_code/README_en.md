@@ -30,7 +30,7 @@ $ cd ..
 
 Step 4. Run Demo.
 ```sh
-$ build/erasure_code_demo
+$ ./erasure_code_demo
 ```
 Expected Result：decode succ!!
 
