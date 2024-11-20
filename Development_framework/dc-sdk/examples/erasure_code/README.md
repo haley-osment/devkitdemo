@@ -6,7 +6,6 @@
 
 确保环境上已经安装数据压缩SDK,需要同时安装kunpeng-dc-1.0.0和kunpeng-dc-devel-1.0.0，下载地址[数据压缩SDK](https://mirrors.huaweicloud.com/kunpeng/archive/Kunpeng_SDK/DC/)。
 
-```
 
 ## 使用教程
 步骤1. 获取代码。
