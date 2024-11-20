@@ -14,7 +14,7 @@ $ git clone https://github.com/kunpengcompute/devkitdemo.git
 
 步骤2. 切入到Demo根路径
 ```sh
-$ cd ./devkitdemo/gpc-sdk/examples/glz
+$ cd ./devkitdemo/Development_framework/dc-sdk/examples/glz
 ```
 
 步骤3. 编译Demo
