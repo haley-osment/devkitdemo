@@ -4,6 +4,7 @@ Release:        1
 Summary:        kunpeng dc devel
 License:        Commercial
 Source:         kunpeng-dc-devel.tar.gz
+Requires:       kunpeng-dc = 1.0.0
 
 %description
 kunpeng-dc-devel users the Kunpeng proprietary compression algorithm to enhance data compression performance. Support os: openEuler 20.03 LTS SP1.
