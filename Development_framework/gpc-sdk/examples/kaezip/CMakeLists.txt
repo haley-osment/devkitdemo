@@ -14,13 +14,13 @@
 
 
 cmake_minimum_required(VERSION 3.4.1)
-project(kaezip-demo)
+project(kaezlib-demo)
 
 # Add source files
-set(SRC src/kaezip_demo.c)
+set(SRC src/kaezlib_demo.c)
 
 # Set target file
-set(TARGET_FILE kaezip_demo)
+set(TARGET_FILE kaezlib_demo)
 
 # Set KAEZIP path
 set(KAEZIP_PATH /usr/local)
