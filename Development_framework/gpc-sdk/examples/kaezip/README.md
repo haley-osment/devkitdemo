@@ -9,7 +9,7 @@
 [KAEdriver下载地址](https://github.com/kunpengcompute/KAEdriver)
 [KAEzip下载地址](https://github.com/kunpengcompute/KAEdriver)
 [编译参考](https://github.com/kunpengcompute/KAEzip)
-
+修改
 2. Or install **kunpeng-gpc** and **kunpeng-gpc-devle** SDK
 
 ## 使用教程
