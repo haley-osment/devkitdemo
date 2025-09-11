@@ -1,16 +1,16 @@
-# **kaezip & gzip demo**
+# **kaezlib & gzip demo**
 
 English | [简体中文](README.md)
 
 ## Introduction
-1. [KAEzip](https://www.hikunpeng.com/document/detail/zh/kunpengaccel/compress/devg-kaezip/kunpengaccel_kaezip_0001.html) is the compression module of the Kunpeng Accelerator Engine (KAE). It uses the Kunpeng hardware acceleration module to implement the deflate algorithm and works with the lossless user-mode driver framework to provide an interface for high-performance compression in gzip or zlib format.
-## KAEzip demo dependency
+1. [KAEZlib](https://www.hikunpeng.com/developer/boostkit/library/detail?subtab=KAEZlib) is the compression module of the Kunpeng Accelerator Engine (KAE). It uses the Kunpeng hardware acceleration module to implement the deflate algorithm and works with the lossless user-mode driver framework to provide an interface for high-performance compression in gzip or zlib format.
+## KAEZlib demo dependency
 1. Ensure **KAEdriver** has been installed;
-2. Ensure **KAEzip** has been installed;
+2. Ensure **KAEZlib** has been installed;
 
-[Download KAEdriver](https://github.com/kunpengcompute/KAEdriver)
-[Download KAEzip](https://github.com/kunpengcompute/KAEdriver)
-[Reference](https://github.com/kunpengcompute/KAEzip)
+[Download KAEdriver](https://gitee.com/kunpengcompute/KAE/tree/kae2/KAEKernelDriver)
+[Download KAEZlib](https://gitee.com/kunpengcompute/KAE/tree/kae2/KAEZlib)
+[Reference](https://gitee.com/kunpengcompute/KAE/blob/kae2/README.md)
 
 2. Or install **kunpeng-gpc** and **kunpeng-gpc-devle** SDK
 
@@ -24,10 +24,10 @@ English | [简体中文](README.md)
 2. Switch to the project root path.
 
    ```shell
-   cd ./devkitdemo/Development_framework/gpc-sdk/examples/kaezip/
+   cd ./devkitdemo/Development_framework/gpc-sdk/examples/kaezlib/
    ```
 
-3. Compile the KAEzip demo.
+3. Compile the KAEZlib demo.
 
    ```shell
    mkdir build
@@ -36,12 +36,12 @@ English | [简体中文](README.md)
    make
    ```
 
-4. Run KAEzip demo
+4. Run KAEZlib demo
 
    ```shell
-   ./kaezip_demo -h // help
-   ./kaezip_demo -czf filename.tar.gz filename // compress
-   ./kaezip_demo -xzf filename.tar.gz // decompress
+   ./kaezlib_demo -h // help
+   ./kaezlib_demo -czf filename.tar.gz filename // compress
+   ./kaezlib_demo -xzf filename.tar.gz // decompress
    ```
 
 5. 清理demo
